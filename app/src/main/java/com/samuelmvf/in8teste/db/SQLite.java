@@ -21,20 +21,43 @@ public class SQLite {
         }
 
     }
-    public void updateData(){
+    public void updateData(String data){
         try{
-            /*String query = "UPDATE  FROM tbl_dados";
-            getBanco().execSQL(query);*/
+            String query = "UPDATE tbl_historic SET historic = "+data+" WHERE id=1";
+            getBanco().execSQL(query);
 
         }catch (Exception e){
             e.printStackTrace();
         }
 
     }
+    public void listData(){
+        try{
+            Cursor cursor = getBanco().rawQuery("SELECT * FROM tbl_historic",null);
+
+            int indiceHistoric = cursor.getColumnIndex("historic");
+
+            cursor.moveToFirst();
+            while(cursor != null)
+            {
+                String id = cursor.getString(0);
+                String data = cursor.getString(indiceHistoric);
+
+                Log.i("Resultado - id",  id + " | Data: " + data);
+
+                if(cursor.isLast())
+                    cursor = null;
+                else
+                    cursor.moveToNext();
+
+            }
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
 
 
-    //GETTERS AND SETTERS
-
+    }
     public SQLiteDatabase getBanco() {
         return banco;
     }

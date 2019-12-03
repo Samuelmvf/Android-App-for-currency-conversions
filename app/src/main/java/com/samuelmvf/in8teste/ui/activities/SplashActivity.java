@@ -30,21 +30,27 @@ public class SplashActivity extends AppCompatActivity {
         try {
 
             SQLiteDatabase data = openOrCreateDatabase("IN8", MODE_PRIVATE,null);
-            data.execSQL("CREATE TABLE IF NOT EXISTS tb_historic (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, historic MEDIUMTEXT NOT NULL)");
+            data.execSQL("CREATE TABLE IF NOT EXISTS tbl_historic (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, historic MEDIUMTEXT NOT NULL)");
+            database = new SQLite(data);
 
             prefs = getSharedPreferences("com.samuelmvf.in8teste", MODE_PRIVATE);
             if(prefs.getBoolean("firstrun", true))
             {
 
-                database = new SQLite(data);
-                //data.execSQL();
+
+                database.insertData("init");
+                database.listData();
                 Log.i("Resultado: ","FirstTime");
                 SharedPreferences.Editor editor = prefs.edit();
                 editor.putBoolean("firstrun", false);
                 editor.apply();
+
             }
             else
+            {
                 Log.i("Resultado: ","Not FirstTime ");
+                database.listData();
+            }
 
 
             Handler handler = new Handler();
