@@ -1,0 +1,61 @@
+<resources>
+    <string name="app_name">IN8 Prova</string>
+
+
+    <!--LOGIN ACTIVITY-->
+    <string name="title_login">Sign In</string>
+    <string name="forgot_password">Forgot your password?</string>
+    <string name="login">Log In</string>
+    <string name="login_with_socialmedia">Login with</string>
+    <string name="et_username">Username or Email</string>
+    <string name="et_password">Password</string>
+
+    <!--EXCHANGE ACTIVITY-->
+    <string name="title_exchange">IN8 Currency Converter</string>
+    <string-array name="type_coins">
+        <item>CAD</item>
+        <item>HKD</item>
+        <item>ISK</item>
+        <item>PHP</item>
+        <item>DKK</item>
+        <item>HUF</item>
+        <item>CZK</item>
+        <item>GBP</item>
+        <item>RON</item>
+        <item>SEK</item>
+        <item>IDR</item>
+        <item>INR</item>
+        <item>BRL</item>
+        <item>RUB</item>
+        <item>HRK</item>
+        <item>JPY</item>
+        <item>THB</item>
+        <item>CHF</item>
+        <item>EUR</item>
+        <item>MYR</item>
+        <item>BGN</item>
+        <item>TRY</item>
+        <item>CNY</item>
+        <item>NOK</item>
+        <item>NZD</item>
+        <item>ZAR</item>
+        <item>USD</item>
+        <item>MXN</item>
+        <item>SGD</item>
+        <item>AUD</item>
+        <item>ILS</item>
+        <item>KRW</item>
+        <item>PLN</item>
+    </string-array>
+    <string name="button_convert">Convert</string>
+    <string name="value_to_convert">Value to be converted</string>
+    <string name="desc_convert">Base Coin:</string>
+    <string name="button_historic">Historic</string>
+
+    <!-- HISTORIC ACTIVITY -->
+    <string name="historic_title">Conversion History</string>
+    <string name="historic_btYour">Your Conversions</string>
+    <string name="historic_btAPI">Historic Rates</string>
+
+
+</resources>
