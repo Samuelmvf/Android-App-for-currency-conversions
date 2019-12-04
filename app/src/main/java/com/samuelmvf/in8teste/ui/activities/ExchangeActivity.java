@@ -120,7 +120,7 @@ public class ExchangeActivity extends AppCompatActivity {
                             for(String key:rates.keySet())
                             {
                                 try {
-                                    Rate r = new Rate(key,rates.get(key));
+                                    Rate r = new Rate(key,rates.get(key)*amount);
                                     ratesForConversion.add(r);
                                 }
                                 catch (Exception e){
@@ -160,6 +160,7 @@ public class ExchangeActivity extends AppCompatActivity {
 
                                 db.updateData(strConversions);
                             }
+                            data.close();
 
 
                         }catch (Exception e)

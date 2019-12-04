@@ -40,7 +40,7 @@
         >
 
         <Button
-            android:id="@+id/btAPIHistori"
+            android:id="@+id/btAPIHistoric"
             android:layout_width="150dp"
             android:layout_height="60dp"
             android:background="@drawable/btn_inputs2"
@@ -68,5 +68,6 @@
         android:layout_marginBottom="20dp"
         android:layout_marginTop="10dp"
         android:id="@+id/lvHistoric"
+        android:visibility="invisible"
         />
 </RelativeLayout>

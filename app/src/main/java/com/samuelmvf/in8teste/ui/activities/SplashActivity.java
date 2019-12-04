@@ -40,9 +40,6 @@ public class SplashActivity extends AppCompatActivity {
                 Log.i("Resultado: ","FirstTime");
                 database.insertData("");
                 database.listData();
-                database.updateData("update1");
-                database.listData();
-
             }
             else
             {

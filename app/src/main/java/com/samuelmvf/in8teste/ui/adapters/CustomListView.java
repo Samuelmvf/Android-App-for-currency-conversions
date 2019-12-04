@@ -51,9 +51,6 @@ public class CustomListView extends BaseAdapter{
         double value = (double) list.get(keys[position]);
         double final_value = value * initial_amount;
 
-        DecimalFormat decimalFormat = new DecimalFormat("#.##");
-        final_value = Double.valueOf(decimalFormat.format(final_value));
-
         Rate r = new Rate(keys[position],final_value);
 
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -64,7 +61,7 @@ public class CustomListView extends BaseAdapter{
         TextView amount = v.findViewById(R.id.tvListItemValue);
 
         currency.setText(r.getName());
-        amount.setText(r.getValue()+"");
+        amount.setText(String.format("%.2f", r.getValue()));
 
         return v;
     }
