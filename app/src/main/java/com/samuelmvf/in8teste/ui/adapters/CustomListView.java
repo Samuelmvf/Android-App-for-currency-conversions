@@ -12,6 +12,7 @@ import com.samuelmvf.in8teste.R;
 import com.samuelmvf.in8teste.model.Rate;
 
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 
@@ -19,7 +20,7 @@ public class CustomListView extends BaseAdapter{
 
     private HashMap list;
     private double initial_amount;
-    private static final String[] keys = {"CAD","HKD","ISK","PHP","DKK","HUF","CZK","GBP","RON","SEK","IDR","INR","BRL","RUB","HRK","JPY","THB","CHF","EUR","MYR","BGN","TRY","CNY","NOK","NZD","ZAR","USD","MXN","SGD","AUD","ILS","KRW","PLN"};
+    private String[] keys = {"CAD","HKD","ISK","PHP","DKK","HUF","CZK","GBP","RON","SEK","IDR","INR","BRL","RUB","HRK","JPY","THB","CHF","EUR","MYR","BGN","TRY","CNY","NOK","NZD","ZAR","USD","MXN","SGD","AUD","ILS","KRW","PLN"};
     private Activity context;
 
     public CustomListView(Activity context, HashMap listItens, double initial_amount) {

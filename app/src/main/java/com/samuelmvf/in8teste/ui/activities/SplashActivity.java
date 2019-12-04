@@ -34,16 +34,14 @@ public class SplashActivity extends AppCompatActivity {
             database = new SQLite(data);
 
             prefs = getSharedPreferences("com.samuelmvf.in8teste", MODE_PRIVATE);
+
             if(prefs.getBoolean("firstrun", true))
             {
-
-
-                database.insertData("init");
-                database.listData();
                 Log.i("Resultado: ","FirstTime");
-                SharedPreferences.Editor editor = prefs.edit();
-                editor.putBoolean("firstrun", false);
-                editor.apply();
+                database.insertData("");
+                database.listData();
+                database.updateData("update1");
+                database.listData();
 
             }
             else
@@ -52,6 +50,7 @@ public class SplashActivity extends AppCompatActivity {
                 database.listData();
             }
 
+            data.close();
 
             Handler handler = new Handler();
             handler.postDelayed(new Runnable() {

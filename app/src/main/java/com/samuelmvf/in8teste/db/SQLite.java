@@ -23,7 +23,7 @@ public class SQLite {
     }
     public void updateData(String data){
         try{
-            String query = "UPDATE tbl_historic SET historic = "+data+" WHERE id=1";
+            String query = "UPDATE tbl_historic SET historic = '"+data+"' WHERE id=1";
             getBanco().execSQL(query);
 
         }catch (Exception e){
@@ -55,9 +55,25 @@ public class SQLite {
         catch (Exception e){
             e.printStackTrace();
         }
-
-
     }
+
+    public String getData(){
+        try{
+            Cursor cursor = getBanco().rawQuery("SELECT * FROM tbl_historic",null);
+
+            int indiceHistoric = cursor.getColumnIndex("historic");
+
+            cursor.moveToFirst();
+            String data = cursor.getString(indiceHistoric);
+
+            return data;
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+        return "";
+    }
+
     public SQLiteDatabase getBanco() {
         return banco;
     }

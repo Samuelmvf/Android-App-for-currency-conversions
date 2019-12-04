@@ -8,8 +8,11 @@ import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
@@ -22,12 +25,20 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
 import com.samuelmvf.in8teste.R;
 import com.samuelmvf.in8teste.app.PanelAppApplication;
+import com.samuelmvf.in8teste.db.SQLite;
+import com.samuelmvf.in8teste.model.Conversion;
 import com.samuelmvf.in8teste.model.Exchange;
+import com.samuelmvf.in8teste.model.ListOfConversions;
+import com.samuelmvf.in8teste.model.Rate;
 import com.samuelmvf.in8teste.services.ServiceExchange;
 import com.samuelmvf.in8teste.ui.Utils.Utils;
 import com.samuelmvf.in8teste.ui.adapters.CustomListView;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -102,6 +113,55 @@ public class ExchangeActivity extends AppCompatActivity {
                             CustomListView adapter = new CustomListView(ExchangeActivity.this,exchangeCoin.getRates(),amount);
                             allCurrencys.setVisibility(View.VISIBLE);
                             countryCurrency.setAdapter(adapter);
+
+                            ArrayList<Rate> ratesForConversion = new ArrayList<>();
+                            HashMap<String,Double> rates = response.body().getRates();
+
+                            for(String key:rates.keySet())
+                            {
+                                try {
+                                    Rate r = new Rate(key,rates.get(key));
+                                    ratesForConversion.add(r);
+                                }
+                                catch (Exception e){
+                                    Log.d("Erro", "erro ");
+                                }
+                            }
+
+                            Conversion conv = new Conversion(amount,typeofCoin,ratesForConversion);
+
+                            SharedPreferences pref = getSharedPreferences("com.samuelmvf.in8teste", MODE_PRIVATE);
+
+                            SQLiteDatabase data = openOrCreateDatabase("IN8", MODE_PRIVATE,null);
+                            SQLite db = new SQLite(data);
+                            Gson gson = new Gson();
+
+                            if(pref.getBoolean("firstrun", true))
+                            {
+                                ArrayList<Conversion> arrayConversion = new ArrayList<>();
+                                arrayConversion.add(conv);
+
+                                ListOfConversions listOfConversions = new ListOfConversions(arrayConversion);
+
+                                String strConversions = gson.toJson(listOfConversions);
+
+                                db.updateData(strConversions);
+
+                                SharedPreferences.Editor editor = pref.edit();
+                                editor.putBoolean("firstrun", false);
+                                editor.apply();
+                            }
+                            else{
+                                String strConversions = db.getData();
+                                ListOfConversions listOfConversions = gson.fromJson(strConversions,ListOfConversions.class);
+
+                                listOfConversions.getConversions().add(conv);
+                                strConversions = gson.toJson(listOfConversions);
+
+                                db.updateData(strConversions);
+                            }
+
+
                         }catch (Exception e)
                         {
                             Toast.makeText(getApplicationContext(),"ERRO...", Toast.LENGTH_SHORT).show();
