@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.activities.HistoricActivity"></activity>
+        <activity android:name=".ui.activities.HistoricActivity"
+            android:screenOrientation="portrait"></activity>
         <activity
             android:name=".ui.activities.ExchangeActivity"
             android:screenOrientation="portrait"

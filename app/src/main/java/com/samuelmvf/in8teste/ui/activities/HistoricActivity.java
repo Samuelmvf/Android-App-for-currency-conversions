@@ -31,6 +31,8 @@ public class HistoricActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_historic);
         ButterKnife.bind(this);
+
+        makeHistoricConversions();
     }
 
     @OnClick(R.id.ibBackToConvertCurrency)
@@ -38,7 +40,6 @@ public class HistoricActivity extends AppCompatActivity {
         super.onBackPressed();
     }
 
-    @OnClick(R.id.btYourHistoric)
     public void makeHistoricConversions(){
 
         SQLiteDatabase data = openOrCreateDatabase("IN8", MODE_PRIVATE,null);

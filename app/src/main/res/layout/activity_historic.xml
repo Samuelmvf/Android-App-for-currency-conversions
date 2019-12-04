@@ -30,39 +30,11 @@
         android:layout_centerHorizontal="true"
         android:id="@+id/tvTitleHistoric"
         />
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="100dp"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/tvTitleHistoric"
-        android:orientation="horizontal"
-        android:id="@+id/btActions"
-        >
 
-        <Button
-            android:id="@+id/btAPIHistoric"
-            android:layout_width="150dp"
-            android:layout_height="60dp"
-            android:background="@drawable/btn_inputs2"
-            android:text="@string/historic_btAPI"
-            android:textColor="@color/white"
-            android:layout_marginTop="20dp"
-            />
-        <Button
-            android:id="@+id/btYourHistoric"
-            android:layout_width="150dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="10dp"
-            android:layout_height="60dp"
-            android:background="@drawable/btn_inputs2"
-            android:text="@string/historic_btYour"
-            android:textColor="@color/white"
-            />
-    </LinearLayout>
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/btActions"
+        android:layout_below="@+id/tvTitleHistoric"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginBottom="20dp"

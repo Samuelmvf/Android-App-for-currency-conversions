@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">IN8 Prova</string>
+    <string name="app_name">IN8 Converter</string>
 
 
     <!--LOGIN ACTIVITY-->
@@ -54,8 +54,6 @@
 
     <!-- HISTORIC ACTIVITY -->
     <string name="historic_title">Conversion History</string>
-    <string name="historic_btYour">Your Conversions</string>
-    <string name="historic_btAPI">Historic Rates</string>
 
 
 </resources>

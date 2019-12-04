@@ -45,9 +45,11 @@
 
              >
              <EditText
-                 android:layout_width="350dp"
+                 android:layout_width="match_parent"
                  android:layout_height="wrap_content"
                  android:id="@+id/etUserOrEmail"
+                 android:layout_marginLeft="30dp"
+                 android:layout_marginRight="30dp"
                  android:inputType="text"
                  android:layout_centerHorizontal="true"
                  android:hint="@string/et_username"
@@ -57,7 +59,7 @@
                  android:maxLines="1"
                  />
              <EditText
-                 android:layout_width="350dp"
+                 android:layout_width="match_parent"
                  android:layout_height="wrap_content"
                  android:layout_below="@id/etUserOrEmail"
                  android:id="@+id/etPassword"
@@ -69,20 +71,22 @@
                  android:imeOptions="actionNext"
                  android:maxLines="1"
                  android:inputType="textPassword"
+                 android:layout_marginLeft="30dp"
+                 android:layout_marginRight="30dp"
                  />
 
 
         <Button
             android:id="@+id/btLogin"
-            android:layout_width="350dp"
+            android:layout_width="match_parent"
             android:layout_centerHorizontal="true"
             android:layout_height="45dp"
             android:layout_below="@+id/etPassword"
             android:background="@drawable/btn_inputs"
             android:text="@string/login"
             android:textColor="@color/white"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="30dp"
             android:layout_marginTop="10dp"
             />
          </RelativeLayout>
