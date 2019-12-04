@@ -34,7 +34,7 @@
         />
     <ImageView
         android:layout_width="120dp"
-        android:layout_height="110dp"
+        android:layout_height="120dp"
         android:src="@drawable/in8splash"
         android:layout_centerHorizontal="true"
         android:id="@+id/ivLogo"
